@@ -1,0 +1,11 @@
+{
+  "name": "deliverabilitymonitor-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Coming-soon lander and waitlist capture for deliverabilitymonitor.com",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "test": "node test/waitlist.test.js"
+  }
+}
