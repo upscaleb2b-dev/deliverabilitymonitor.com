@@ -46,13 +46,13 @@
     if (!EMAIL_RE.test(address)) {
       email.setAttribute('aria-invalid', 'true');
       email.focus();
-      setNote('That email address does not look right — mind checking it?', 'error');
+      setNote('// error: that email address does not look right.', 'error');
       return;
     }
 
     form.classList.add('is-loading');
     button.disabled = true;
-    setNote('Adding you to the list…', 'idle');
+    setNote('// requesting access…', 'idle');
 
     fetch('/api/waitlist', {
       method: 'POST',
@@ -73,10 +73,10 @@
       .then(function () {
         form.dataset.done = 'true';
         form.classList.remove('is-loading');
-        button.querySelector('.submit-label').textContent = "You're on the list";
+        button.querySelector('.submit-label').textContent = 'access requested';
         email.disabled = true;
         name.disabled = true;
-        setNote('You are on the waitlist. We will email ' + address + ' when your invite is ready.', 'success');
+        setNote('// confirmed. your invite goes to ' + address + ' when the next wave opens.', 'success');
       })
       .catch(function (error) {
         form.classList.remove('is-loading');
@@ -84,7 +84,7 @@
         setNote(
           error && error.message && error.message !== 'Request failed'
             ? error.message
-            : 'Something went wrong on our end. Try again, or email hello@deliverabilitymonitor.com.',
+            : '// error: request failed. try again, or email hello@deliverabilitymonitor.com.',
           'error'
         );
       });

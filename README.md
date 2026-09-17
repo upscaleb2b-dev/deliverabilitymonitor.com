@@ -1,8 +1,9 @@
 # deliverabilitymonitor.com
 
-Coming-soon lander for **Deliverability Monitor** with a waitlist form that pushes
-signups into GoHighLevel.
+Closed-beta lander for **Deliverability Monitor** — "the deliverability layer" —
+with a waitlist form that pushes signups into GoHighLevel.
 
+Terminal/console aesthetic: monospace, dark, status chips, console chrome.
 No build step, no framework, no dependencies — static HTML/CSS/JS plus one
 serverless function.
 
@@ -13,6 +14,26 @@ assets/js/app.js    form validation + submit
 api/waitlist.js     serverless endpoint that delivers signups to GHL
 test/waitlist.test.js
 ```
+
+## Page structure
+
+| Section | `#id` | Notes |
+| --- | --- | --- |
+| Hero console | — | Headline, waitlist form, placeholder monitor rail |
+| Connect & monitor | `#monitor` | 6 panels — inboxes, infrastructure, placement signals, campaign health, benchmarks, integrations |
+| Built AI native | `#ai` | Claude skills, GPT/Grok/Perplexity prompt packs, MCP server |
+| The API | `#api` | Endpoint list + sample response |
+| How it works | `#how` | 4 steps |
+| CTA band | — | "Built for the future of outbound" |
+| FAQ | `#faq` | 4 placeholder Q&As |
+
+**Everything user-facing is placeholder copy.** Before launch, replace: the monitor
+rail numbers, the `beta`/`alpha`/`soon` status chips on every feature line, the
+API routes and sample response, the Claude skill names, the MCP install command,
+and all four FAQ answers.
+
+Status chips are `.chip-beta` (green), `.chip-alpha` (amber) and `.chip-soon`
+(grey) — swap the class to change a line's status.
 
 ## Connecting GoHighLevel
 

@@ -3,124 +3,425 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Deliverability Monitor — The AI That Makes Sure You Inbox</title>
-<meta name="description" content="Deliverability Monitor is the AI that watches every sending domain, mailbox and campaign around the clock — and fixes placement before your reply rate drops. Join the waitlist." />
+<title>Deliverability Monitor — The Deliverability Layer for AI-Native Outbound</title>
+<meta name="description" content="Connect and monitor every inbox, domain, blacklist and placement signal in your outbound stack. Skills for Claude, prompts for GPT, an MCP server and a full API. Closed beta." />
 <link rel="canonical" href="https://deliverabilitymonitor.com/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://deliverabilitymonitor.com/" />
-<meta property="og:title" content="Deliverability Monitor — The AI That Makes Sure You Inbox" />
-<meta property="og:description" content="AI that watches every domain, mailbox and campaign around the clock — and fixes placement before your reply rate drops." />
+<meta property="og:title" content="Deliverability Monitor — The Deliverability Layer" />
+<meta property="og:description" content="We make sure your emails deliver to the inbox. AI-native, API-first, built for the future of outbound." />
 <meta property="og:image" content="https://deliverabilitymonitor.com/assets/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📬</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0d0c'/><text x='50' y='72' font-family='monospace' font-size='64' font-weight='700' fill='%234ade80' text-anchor='middle'>_</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-<div class="glow" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
 <div class="grid-bg" aria-hidden="true"></div>
 
+<!-- ══ status ticker ══════════════════════════════════════════════ -->
+<div class="ticker" role="status">
+  <div class="ticker-track">
+    <span class="ticker-item"><i class="dot dot-green"></i> closed beta · onboarding in waves</span>
+    <span class="ticker-item"><i class="dot dot-amber"></i> placeholder metric — inbox rate 94.2%</span>
+    <span class="ticker-item"><i class="dot dot-green"></i> mcp server · shipping soon</span>
+    <span class="ticker-item"><i class="dot dot-coral"></i> placeholder metric — 3 domains flagged</span>
+    <span class="ticker-item"><i class="dot dot-green"></i> claude skills · in development</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> closed beta · onboarding in waves</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-amber"></i> placeholder metric — inbox rate 94.2%</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> mcp server · shipping soon</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-coral"></i> placeholder metric — 3 domains flagged</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> claude skills · in development</span>
+  </div>
+</div>
+
+<!-- ══ nav ════════════════════════════════════════════════════════ -->
 <header class="nav">
   <a class="brand" href="/">
-    <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2.5" y="5" width="19" height="14" rx="3" />
-        <path d="M3.5 7.5 12 13l8.5-5.5" />
-      </svg>
-    </span>
-    <span class="brand-name">Deliverability&nbsp;Monitor</span>
+    <span class="brand-name">deliverability<span class="brand-accent">_monitor</span></span>
+    <span class="caret" aria-hidden="true">_</span>
   </a>
-  <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#monitor">what we monitor</a>
+    <a href="#ai">ai native</a>
+    <a href="#api">api</a>
+    <a href="#how">how it works</a>
+    <a href="#faq">faq</a>
+  </nav>
+  <a class="nav-cta" href="#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
 </header>
 
 <main>
-  <section class="hero">
-    <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Coming soon</span>
+  <!-- ══ hero console ═════════════════════════════════════════════ -->
+  <section class="console">
+    <div class="console-bar">
+      <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="console-title">deliverability_monitor — CLOSED BETA</span>
+      <span class="console-meta" aria-hidden="true">v0.1.0-beta</span>
+    </div>
 
-    <h1 class="headline">
-      The AI that makes sure<br />
-      <span class="headline-accent">you inbox.</span>
-    </h1>
+    <div class="console-body">
+      <!-- left: the pitch -->
+      <div class="console-main">
+        <p class="prompt-line"><span class="prompt">$</span> dm status --layer</p>
 
-    <p class="sub">
-      Deliverability Monitor watches every sending domain, mailbox and campaign around
-      the clock — catching placement drops, blacklists and auth failures before they
-      cost you replies.
-    </p>
+        <h1 class="headline">
+          Welcome to the<br />
+          <span class="headline-accent">Deliverability Layer</span><span class="cursor" aria-hidden="true"></span>
+        </h1>
 
-    <form id="waitlist" class="form" novalidate>
-      <div class="form-row">
-        <label class="sr-only" for="name">First name</label>
-        <input id="name" name="name" type="text" autocomplete="given-name" placeholder="First name" />
+        <p class="sub">
+          We make sure your emails deliver to the inbox. Connect every inbox, domain and
+          signal in your outbound stack — and let AI watch it around the clock.
+        </p>
 
-        <label class="sr-only" for="email">Work email</label>
-        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+        <div class="tags">
+          <span class="tag">ai native</span>
+          <span class="tag">api first</span>
+          <span class="tag">mcp ready</span>
+          <span class="tag">built for outbound</span>
+        </div>
 
-        <button class="submit" type="submit">
-          <span class="submit-label">Get early access</span>
-          <span class="spinner" aria-hidden="true"></span>
-        </button>
+        <!-- ── waitlist form ── -->
+        <form id="waitlist" class="form" novalidate>
+          <p class="form-label"><span class="prompt">$</span> dm beta --request-access</p>
+
+          <div class="form-row">
+            <label class="sr-only" for="name">First name</label>
+            <input id="name" name="name" type="text" autocomplete="given-name" placeholder="first name" />
+
+            <label class="sr-only" for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+
+            <button class="submit" type="submit">
+              <span class="submit-label">request access &gt;</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="company_website">Company website</label>
+            <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <p class="form-note" id="form-status" role="status" aria-live="polite">
+            // closed beta. we onboard in waves — no spam, just your invite.
+          </p>
+        </form>
       </div>
 
-      <!-- honeypot: hidden from humans, irresistible to bots -->
-      <div class="hp" aria-hidden="true">
-        <label for="company_website">Company website</label>
-        <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
-      </div>
+      <!-- right: live-ish monitor rail -->
+      <aside class="console-rail" aria-label="Monitor preview">
+        <p class="rail-head">Coming soon — live monitor</p>
+        <p class="rail-sub">// all values below are placeholders</p>
 
-      <p class="form-note" id="form-status" role="status" aria-live="polite">
-        Early access is rolling out in waves. No spam — just your invite.
-      </p>
-    </form>
+        <div class="readout">
+          <div class="readout-row">
+            <span class="readout-key">inbox placement</span>
+            <span class="readout-val val-green">94.2%</span>
+          </div>
+          <div class="meter"><span class="meter-fill green" style="width:94%"></span></div>
 
-    <ul class="proof">
-      <li><span class="proof-num">24/7</span> inbox placement checks</li>
-      <li><span class="proof-num">100+</span> blacklists &amp; seed networks</li>
-      <li><span class="proof-num">&lt;5m</span> from problem to alert</li>
-    </ul>
+          <div class="readout-row">
+            <span class="readout-key">spam placement</span>
+            <span class="readout-val val-coral">3.1%</span>
+          </div>
+          <div class="meter"><span class="meter-fill coral" style="width:12%"></span></div>
+
+          <div class="readout-row">
+            <span class="readout-key">domain health</span>
+            <span class="readout-val val-amber">warn</span>
+          </div>
+          <div class="meter"><span class="meter-fill amber" style="width:62%"></span></div>
+        </div>
+
+        <p class="rail-head rail-head-sm">Recent events</p>
+        <ul class="events">
+          <li><i class="dot dot-coral"></i> <span>blacklist hit — <em>placeholder.com</em></span></li>
+          <li><i class="dot dot-amber"></i> <span>reply rate down 18% — <em>seq #4</em></span></li>
+          <li><i class="dot dot-green"></i> <span>dkim aligned — <em>placeholder.io</em></span></li>
+          <li><i class="dot dot-amber"></i> <span>tld degradation — <em>.info pool</em></span></li>
+          <li><i class="dot dot-green"></i> <span>warmup complete — <em>12 inboxes</em></span></li>
+        </ul>
+      </aside>
+    </div>
   </section>
 
-  <section class="features" aria-label="What Deliverability Monitor does">
-    <article class="card">
-      <span class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 13.5 8.5 8l4 4L21 3.5" /><path d="M15 3.5h6v6" />
-        </svg>
-      </span>
-      <h2>Placement, not guesswork</h2>
-      <p>Continuous seed tests across Google, Microsoft and Yahoo tell you where mail actually lands — inbox, promotions or spam — per domain and per mailbox.</p>
-    </article>
+  <!-- ══ what we monitor ══════════════════════════════════════════ -->
+  <section id="monitor" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm connect --list-sources</p>
+      <h2>Connect &amp; monitor everything</h2>
+      <p class="section-sub">
+        One layer over your whole sending operation. Placeholder scope — trim or extend
+        before launch.
+      </p>
+    </header>
 
-    <article class="card">
-      <span class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3 4 6.5v5c0 4.7 3.2 8.4 8 9.5 4.8-1.1 8-4.8 8-9.5v-5L12 3Z" /><path d="m9 12 2 2 4-4" />
-        </svg>
-      </span>
-      <h2>Auth on autopilot</h2>
-      <p>SPF, DKIM, DMARC and MX watched on every domain you send from. Records drift, expire or get misconfigured — you hear about it in minutes, not next quarter.</p>
-    </article>
+    <div class="monitor-grid">
+      <article class="panel">
+        <h3><span class="panel-idx">01</span> Inboxes</h3>
+        <ul class="list">
+          <li>Google Workspace inboxes <span class="chip chip-beta">beta</span></li>
+          <li>Microsoft 365 / Outlook inboxes <span class="chip chip-beta">beta</span></li>
+          <li>SMTP &amp; custom inboxes <span class="chip chip-soon">soon</span></li>
+          <li>Warmup pool health <span class="chip chip-soon">soon</span></li>
+        </ul>
+      </article>
 
-    <article class="card">
-      <span class="card-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a7 7 0 0 0-7 7c0 3.5-1.5 4.8-2 5.5h18c-.5-.7-2-2-2-5.5a7 7 0 0 0-7-7Z" /><path d="M10 18.5a2 2 0 0 0 4 0" />
-        </svg>
-      </span>
-      <h2>Alerts that mean something</h2>
-      <p>AI separates real degradation from daily noise, then tells you what changed and what to do — pause the mailbox, rotate the domain, fix the record.</p>
-    </article>
+      <article class="panel">
+        <h3><span class="panel-idx">02</span> Infrastructure</h3>
+        <ul class="list">
+          <li>Sending domains &amp; subdomains <span class="chip chip-beta">beta</span></li>
+          <li>SPF · DKIM · DMARC · MX <span class="chip chip-beta">beta</span></li>
+          <li>Blacklist monitoring <span class="chip chip-beta">beta</span></li>
+          <li>TLD degradation tracking <span class="chip chip-alpha">alpha</span></li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h3><span class="panel-idx">03</span> Placement signals</h3>
+        <ul class="list">
+          <li>Inbox placement tests <span class="chip chip-beta">beta</span></li>
+          <li>Google Postmaster Tools <span class="chip chip-beta">beta</span></li>
+          <li>Bounces &amp; spam reports <span class="chip chip-beta">beta</span></li>
+          <li>Shadow banning detection <span class="chip chip-alpha">alpha</span></li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h3><span class="panel-idx">04</span> Campaign health</h3>
+        <ul class="list">
+          <li>Reply rate drop alerts <span class="chip chip-beta">beta</span></li>
+          <li>Click rate drop alerts <span class="chip chip-beta">beta</span></li>
+          <li>Sequencing tool sync <span class="chip chip-soon">soon</span></li>
+          <li>Lead &amp; list health <span class="chip chip-soon">soon</span></li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h3><span class="panel-idx">05</span> Benchmarks</h3>
+        <ul class="list">
+          <li>Industry deliverability benchmarks <span class="chip chip-alpha">alpha</span></li>
+          <li>ESP segmentation trends <span class="chip chip-alpha">alpha</span></li>
+          <li>Peer cohort comparison <span class="chip chip-soon">soon</span></li>
+          <li>Historical placement trends <span class="chip chip-soon">soon</span></li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h3><span class="panel-idx">06</span> Integrations</h3>
+        <ul class="list">
+          <li>Instantly <span class="chip chip-soon">soon</span></li>
+          <li>Smartlead <span class="chip chip-soon">soon</span></li>
+          <li>Clay <span class="chip chip-soon">soon</span></li>
+          <li>Your CRM / webhook <span class="chip chip-soon">soon</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ ai native ════════════════════════════════════════════════ -->
+  <section id="ai" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm agents --install</p>
+      <h2>Built AI native</h2>
+      <p class="section-sub">
+        No dashboard required. Call the deliverability layer from whatever your team
+        already reasons in.
+      </p>
+    </header>
+
+    <div class="ai-grid">
+      <article class="panel panel-tall">
+        <span class="chip chip-soon panel-chip">soon</span>
+        <h3>Skills for Claude</h3>
+        <p>Drop-in skills so Claude can audit domains, read placement data and plan a fix without leaving your terminal.</p>
+        <pre class="code"><code><span class="c-dim">/</span>deliverability-audit <span class="c-dim">&lt;domain&gt;</span>
+<span class="c-dim">/</span>inbox-placement <span class="c-dim">&lt;mailbox&gt;</span>
+<span class="c-dim">/</span>warmup-plan <span class="c-dim">&lt;pool&gt;</span>
+<span class="c-dim">/</span>blacklist-check <span class="c-dim">&lt;domain&gt;</span>
+<span class="c-comment"># placeholder — final skill list tbd</span></code></pre>
+      </article>
+
+      <article class="panel panel-tall">
+        <span class="chip chip-soon panel-chip">soon</span>
+        <h3>Prompts for GPT, Grok &amp; Perplexity</h3>
+        <p>Copy-paste prompt packs that turn any frontier model into a deliverability analyst over your own data.</p>
+        <ul class="list list-plain">
+          <li><span class="prompt">&gt;</span> daily inbox health digest</li>
+          <li><span class="prompt">&gt;</span> root-cause a reply rate drop</li>
+          <li><span class="prompt">&gt;</span> domain rotation planner</li>
+          <li><span class="prompt">&gt;</span> spam complaint triage</li>
+          <li class="c-comment"># placeholder pack</li>
+        </ul>
+      </article>
+
+      <article class="panel panel-tall">
+        <span class="chip chip-alpha panel-chip">alpha</span>
+        <h3>MCP server</h3>
+        <p>Native Model Context Protocol server. Point any MCP client at your account and the tools show up.</p>
+        <pre class="code"><code><span class="c-dim">$</span> npx @deliverability<span class="c-dim">/</span>mcp
+<span class="c-green">✓</span> connected
+<span class="c-green">✓</span> 14 tools registered
+<span class="c-comment"># placeholder install command</span></code></pre>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ api ══════════════════════════════════════════════════════ -->
+  <section id="api" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm api --endpoints</p>
+      <h2>The API</h2>
+      <p class="section-sub">Everything the UI can do, the API can do first. Placeholder routes below.</p>
+    </header>
+
+    <div class="api-wrap">
+      <div class="api-list">
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-get">GET</span>
+          <code>/v1/domains/:domain/health</code>
+          <span class="chip chip-beta">beta</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-get">GET</span>
+          <code>/v1/inboxes/:id/placement</code>
+          <span class="chip chip-beta">beta</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-get">GET</span>
+          <code>/v1/blacklists/check</code>
+          <span class="chip chip-beta">beta</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-get">GET</span>
+          <code>/v1/postmaster/reputation</code>
+          <span class="chip chip-alpha">alpha</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-post">POST</span>
+          <code>/v1/placement-tests</code>
+          <span class="chip chip-alpha">alpha</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-get">GET</span>
+          <code>/v1/benchmarks/industry</code>
+          <span class="chip chip-soon">soon</span>
+        </a>
+        <a class="api-row" href="#waitlist">
+          <span class="verb verb-post">POST</span>
+          <code>/v1/webhooks/alerts</code>
+          <span class="chip chip-soon">soon</span>
+        </a>
+      </div>
+
+      <div class="panel api-sample">
+        <p class="rail-head rail-head-sm">Sample response</p>
+        <pre class="code"><code>{
+  <span class="c-key">"domain"</span>: <span class="c-str">"placeholder.com"</span>,
+  <span class="c-key">"inbox_rate"</span>: <span class="c-num">0.942</span>,
+  <span class="c-key">"spam_rate"</span>: <span class="c-num">0.031</span>,
+  <span class="c-key">"blacklists"</span>: [<span class="c-str">"example-rbl"</span>],
+  <span class="c-key">"auth"</span>: {
+    <span class="c-key">"spf"</span>: <span class="c-green">"pass"</span>,
+    <span class="c-key">"dkim"</span>: <span class="c-green">"pass"</span>,
+    <span class="c-key">"dmarc"</span>: <span class="c-amber">"none"</span>
+  },
+  <span class="c-key">"risk"</span>: <span class="c-amber">"medium"</span>
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ how it works ═════════════════════════════════════════════ -->
+  <section id="how" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm --how</p>
+      <h2>How it works</h2>
+    </header>
+
+    <ol class="steps">
+      <li class="panel">
+        <span class="step-num">01</span>
+        <h3>Connect</h3>
+        <p>Link Google, Microsoft and SMTP inboxes, your sending domains and your sequencer. Read-only, OAuth where it exists.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">02</span>
+        <h3>Monitor</h3>
+        <p>Continuous placement tests, auth checks, blacklist sweeps and Postmaster pulls across every asset you connected.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">03</span>
+        <h3>Diagnose</h3>
+        <p>AI separates real degradation from daily noise, then names the cause — not just the symptom.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">04</span>
+        <h3>Act</h3>
+        <p>Alerts land where you work: Slack, webhook, your agent. Pause the mailbox, rotate the domain, fix the record.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ══ closing cta ══════════════════════════════════════════════ -->
+  <section class="cta">
+    <div class="cta-inner">
+      <p class="prompt-line"><span class="prompt">$</span> dm beta --join</p>
+      <h2>Built for the future of outbound</h2>
+      <p class="section-sub">
+        The deliverability layer is opening in waves. Get your invite before the queue.
+      </p>
+      <a class="cta-btn" href="#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
+    </div>
+  </section>
+
+  <!-- ══ faq ══════════════════════════════════════════════════════ -->
+  <section id="faq" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm faq</p>
+      <h2>FAQ</h2>
+      <p class="section-sub">// placeholder answers — rewrite before launch</p>
+    </header>
+
+    <div class="faq">
+      <details class="panel">
+        <summary>When does the beta open?</summary>
+        <p>Placeholder. We onboard in waves and email invites as capacity opens.</p>
+      </details>
+      <details class="panel">
+        <summary>Do you need access to my inbox content?</summary>
+        <p>Placeholder. Read-only metadata and headers — no message bodies. Rewrite with your actual scope.</p>
+      </details>
+      <details class="panel">
+        <summary>Does this replace my sequencer?</summary>
+        <p>Placeholder. No — it sits alongside Instantly, Smartlead, Clay and the rest as a monitoring layer.</p>
+      </details>
+      <details class="panel">
+        <summary>What will it cost?</summary>
+        <p>Placeholder. Pricing lands before general availability. Beta users keep early-access terms.</p>
+      </details>
+    </div>
   </section>
 </main>
 
 <footer class="footer">
-  <span>© <span id="year">2026</span> Deliverability Monitor</span>
-  <span class="footer-sep" aria-hidden="true">·</span>
-  <a href="mailto:hello@deliverabilitymonitor.com">hello@deliverabilitymonitor.com</a>
+  <div class="footer-inner">
+    <span class="brand-name">deliverability<span class="brand-accent">_monitor</span></span>
+    <span class="footer-links">
+      <a href="#monitor">what we monitor</a>
+      <a href="#ai">ai native</a>
+      <a href="#api">api</a>
+      <a href="mailto:hello@deliverabilitymonitor.com">hello@deliverabilitymonitor.com</a>
+    </span>
+    <span class="footer-meta">© <span id="year">2026</span> · closed beta</span>
+  </div>
 </footer>
 
 <script src="/assets/js/app.js" defer></script>
