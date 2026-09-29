@@ -14,6 +14,42 @@
 
   document.getElementById('year').textContent = String(new Date().getFullYear());
 
+  // Type the wordmark out once on load; the caret keeps blinking afterwards.
+  (function typeBrand() {
+    var target = document.getElementById('brand-type');
+    if (!target) return;
+
+    var DOMAIN = 'deliverabilitymonitor.com';
+    var TLD_AT = DOMAIN.length - 4; // ".com" picks up the accent colour
+
+    function render(count) {
+      var head = DOMAIN.slice(0, Math.min(count, TLD_AT));
+      var tail = count > TLD_AT ? DOMAIN.slice(TLD_AT, count) : '';
+      target.textContent = head;
+      if (tail) {
+        var dot = document.createElement('span');
+        dot.className = 'type-dot';
+        dot.textContent = tail;
+        target.appendChild(dot);
+      }
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      render(DOMAIN.length);
+      return;
+    }
+
+    var wrap = target.closest('.type');
+    wrap.classList.add('is-typing');
+
+    var i = 0;
+    (function step() {
+      render(++i);
+      if (i < DOMAIN.length) setTimeout(step, 55);
+      else wrap.classList.remove('is-typing');
+    })();
+  })();
+
   function setNote(message, state) {
     status.textContent = message;
     status.classList.toggle('is-error', state === 'error');

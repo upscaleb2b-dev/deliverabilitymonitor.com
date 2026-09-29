@@ -126,6 +126,17 @@ a { color: inherit; }
 
 .brand-accent { color: var(--green); }
 
+/* Typed wordmark. The ghost is a full-width invisible copy in the same grid
+   cell, so the nav does not reflow while the characters land. */
+.type { display: inline-grid; }
+.type-ghost,
+.type-out { grid-area: 1 / 1; white-space: nowrap; }
+.type-ghost { visibility: hidden; }
+.type-dot { color: var(--green); }
+
+/* solid caret while characters are landing; it only blinks once typing stops */
+.type.is-typing .caret { animation: none; opacity: 1; }
+
 .caret {
   color: var(--green);
   animation: blink 1.1s steps(2, start) infinite;

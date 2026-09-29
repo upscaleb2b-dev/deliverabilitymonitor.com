@@ -15,6 +15,31 @@ api/waitlist.js     serverless endpoint that delivers signups to GHL
 test/waitlist.test.js
 ```
 
+## Brand assets
+
+The nav has no logo — it types out `deliverabilitymonitor.com` once on load, caret
+trailing the text, `.com` in accent green. A hidden full-width copy of the string
+reserves the space so the nav never reflows mid-type; `prefers-reduced-motion`
+renders it instantly.
+
+The favicon is the "sentinel" mark: a chamfered chassis with an antenna alert
+lamp, jointed limbs and a scanline across a chamfered **D**.
+
+| File | Used for |
+| --- | --- |
+| `assets/icons/favicon.svg` | 32px and up — full mark with limbs and antenna |
+| `assets/icons/favicon-16.svg` | 16px — limbs and antenna dropped, D maximal |
+| `assets/icons/favicon-16.png`, `favicon-32.png` | fallbacks for browsers without SVG favicon support |
+| `assets/icons/apple-touch-icon.png` | 180px, opaque plate (iOS applies its own mask) |
+
+Two files exist because arms, legs, a flap and a letter cannot coexist in 256
+pixels — the detailed mark turns to mush at 16px. Browsers pick per size via the
+`sizes` attribute on each `<link rel="icon">`.
+
+**The D is drawn as a path, not text.** SVG favicons render without webfonts, so a
+`font-family` reference would fall back to whatever monospace each OS ships. Edit
+the letter by editing the path.
+
 ## Page structure
 
 | Section | `#id` | Notes |

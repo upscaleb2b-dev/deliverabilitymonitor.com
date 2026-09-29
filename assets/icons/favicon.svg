@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Deliverability Monitor">
+  <!-- Sentinel mark. The D is a path, not text: SVG favicons render without webfonts. -->
+  <g stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M7 27 L2 23 L1.5 15"/><path d="M57 27 L62 23 L62.5 15"/>
+    <path d="M18 54 L16 59 L20 63"/><path d="M46 54 L48 59 L44 63"/>
+    <path d="M32 9 L32 4"/>
+  </g>
+  <g fill="#4ade80"><circle cx="1.5" cy="15" r="2.2"/><circle cx="62.5" cy="15" r="2.2"/></g>
+  <circle cx="32" cy="3" r="2.6" fill="#ff6b5b"/>
+  <path d="M16 9 H48 L57 18 V45 L48 54 H16 L7 45 V18 Z" fill="#081310" stroke="#4ade80" stroke-width="3.6"/>
+  <path fill="#4ade80" fill-rule="evenodd"
+        d="M20 18 H37 L45 26 V38 L37 46 H20 Z M26 24 V40 H34 L39 35 V29 L34 24 Z"/>
+  <path d="M9 32 H55" stroke="#081310" stroke-width="2.6"/>
+  <path d="M9 32 H55" stroke="#4ade80" stroke-width="0.9" opacity="0.45"/>
+</svg>

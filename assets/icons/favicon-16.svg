@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Deliverability Monitor">
+  <!-- 16px build: limbs and antenna dropped, chassis full-bleed, D maximal. -->
+  <path d="M15 2 H49 L62 15 V49 L49 62 H15 L2 49 V15 Z" fill="#081310" stroke="#4ade80" stroke-width="5"/>
+  <path fill="#4ade80" fill-rule="evenodd"
+        d="M14 13 H37 L51 27 V37 L37 51 H14 Z M22 21 V43 H33 L43 34 V30 L33 21 Z"/>
+  <path d="M5 33 H59" stroke="#081310" stroke-width="3.2"/>
+</svg>
