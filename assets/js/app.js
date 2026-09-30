@@ -1,5 +1,4 @@
-// Waitlist prompt: validate, submit to /api/waitlist, report state inline.
-// Also types the wordmark out on first load.
+// Waitlist form: validate, submit to /api/waitlist, report state inline.
 (function () {
   'use strict';
 
@@ -7,6 +6,7 @@
   var status = document.getElementById('form-status');
   var button = form.querySelector('.submit');
   var email = document.getElementById('email');
+  var name = document.getElementById('name');
   var honeypot = document.getElementById('company_website');
 
   var IDLE_NOTE = status.textContent;
@@ -14,28 +14,28 @@
 
   document.getElementById('year').textContent = String(new Date().getFullYear());
 
-  // ── typed wordmark ────────────────────────────────────────────────
+  // Type the wordmark out once on load; the caret keeps blinking afterwards.
   (function typeBrand() {
     var target = document.getElementById('brand-type');
     if (!target) return;
 
-    var NAME = 'Deliverability Monitor';
-    var ACCENT_AT = NAME.indexOf('Monitor'); // last word picks up the accent colour
+    var DOMAIN = 'deliverabilitymonitor.com';
+    var TLD_AT = DOMAIN.length - 4; // ".com" picks up the accent colour
 
     function render(count) {
-      var head = NAME.slice(0, Math.min(count, ACCENT_AT));
-      var tail = count > ACCENT_AT ? NAME.slice(ACCENT_AT, count) : '';
+      var head = DOMAIN.slice(0, Math.min(count, TLD_AT));
+      var tail = count > TLD_AT ? DOMAIN.slice(TLD_AT, count) : '';
       target.textContent = head;
       if (tail) {
-        var accent = document.createElement('span');
-        accent.className = 'type-dot';
-        accent.textContent = tail;
-        target.appendChild(accent);
+        var dot = document.createElement('span');
+        dot.className = 'type-dot';
+        dot.textContent = tail;
+        target.appendChild(dot);
       }
     }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      render(NAME.length);
+      render(DOMAIN.length);
       return;
     }
 
@@ -45,37 +45,18 @@
     var i = 0;
     (function step() {
       render(++i);
-      if (i < NAME.length) setTimeout(step, 55);
+      if (i < DOMAIN.length) setTimeout(step, 55);
       else wrap.classList.remove('is-typing');
     })();
   })();
 
-  // The full prompt copy clips on narrow screens, so shorten it there.
-  (function syncPlaceholder() {
-    var LONG = 'enter your work email to request closed beta access';
-    var SHORT = 'your work email';
-    function apply() { email.placeholder = window.innerWidth < 620 ? SHORT : LONG; }
-    apply();
-    window.addEventListener('resize', apply);
-  })();
-
-  // ── "1 / Join the closed beta." drops the cursor in the prompt ────
-  var focusLink = document.querySelector('[data-focus-email]');
-  if (focusLink) {
-    focusLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      email.focus();
-    });
-  }
-
-  // ── waitlist ──────────────────────────────────────────────────────
   function setNote(message, state) {
     status.textContent = message;
     status.classList.toggle('is-error', state === 'error');
     status.classList.toggle('is-success', state === 'success');
   }
 
-  // Keep whatever the ad or link carried so GHL sees the source.
+  // Attribution: keep whatever the ad/link carried so GHL sees the source.
   function attribution() {
     var params = new URLSearchParams(window.location.search);
     var out = {};
@@ -114,6 +95,7 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: address,
+        name: name.value.trim(),
         company_website: honeypot.value, // honeypot, must stay empty
         attribution: attribution()
       })
@@ -129,6 +111,7 @@
         form.classList.remove('is-loading');
         button.querySelector('.submit-label').textContent = 'access requested';
         email.disabled = true;
+        name.disabled = true;
         setNote('// confirmed. your invite goes to ' + address + ' when the next wave opens.', 'success');
       })
       .catch(function (error) {

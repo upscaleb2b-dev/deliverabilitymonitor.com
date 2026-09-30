@@ -17,10 +17,9 @@ test/waitlist.test.js
 
 ## Brand assets
 
-The nav pairs the sentinel mark with the name typed out once on load — caret
-trailing the characters, "Monitor" in accent green. A hidden full-width copy of
-the string reserves the space so the nav never reflows mid-type, the caret stays
-solid while typing and only blinks once it settles, and `prefers-reduced-motion`
+The nav has no logo — it types out `deliverabilitymonitor.com` once on load, caret
+trailing the text, `.com` in accent green. A hidden full-width copy of the string
+reserves the space so the nav never reflows mid-type; `prefers-reduced-motion`
 renders it instantly.
 
 The favicon is the "sentinel" mark: a chamfered chassis with an antenna alert
@@ -43,26 +42,23 @@ the letter by editing the path.
 
 ## Page structure
 
-Single-screen console — everything lives in one viewport, no scrolling section stack.
+| Section | `#id` | Notes |
+| --- | --- | --- |
+| Hero console | — | Headline, waitlist form, placeholder monitor rail |
+| Connect & monitor | `#monitor` | 6 panels — inboxes, infrastructure, placement signals, campaign health, benchmarks, integrations |
+| Built AI native | `#ai` | Claude skills, GPT/Grok/Perplexity prompt packs, MCP server |
+| The API | `#api` | Endpoint list + sample response |
+| How it works | `#how` | 4 steps |
+| CTA band | — | "Built for the future of outbound" |
+| FAQ | `#faq` | 4 placeholder Q&As |
 
-```
-nav        logo + typed "Deliverability Monitor" · contact · CTA
-console    ├─ title bar
-           ├─ left pane   headline, sub, "what makes it different", "what next?" menu
-           ├─ right rail  "everything we watch" signal list + "why AI agents love it"
-           └─ prompt bar  the waitlist form, styled as a terminal prompt
-footer     copyright · links
-```
+**Everything user-facing is placeholder copy.** Before launch, replace: the monitor
+rail numbers, the `beta`/`alpha`/`soon` status chips on every feature line, the
+API routes and sample response, the Claude skill names, the MCP install command,
+and all four FAQ answers.
 
-The console flexes to fill whatever the nav and footer leave, and height media
-queries at 900px and 780px compress padding and type so it still lands on one
-screen on short laptops. Below 1000px wide the two panes stack and the page
-scrolls normally — one screen is a desktop goal, not a phone one.
-
-**Everything user-facing is placeholder copy.** Before launch, replace the
-`beta`/`alpha`/`soon` chips on every signal line, the four differentiator
-bullets and the "why AI agents love it" claims.
-
+Status chips are `.chip-beta` (green), `.chip-alpha` (amber) and `.chip-soon`
+(grey) — swap the class to change a line's status.
 
 ## Connecting GoHighLevel
 
