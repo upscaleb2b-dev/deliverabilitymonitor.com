@@ -73,6 +73,33 @@
     if (status.classList.contains('is-error')) setNote(IDLE_NOTE, 'idle');
   });
 
+  // ── resources dropdown ───────────────────────────────────────────
+  (function resourcesMenu() {
+    var toggle = document.querySelector('.tab-menu .tab');
+    var menu = document.getElementById('resources-menu');
+    if (!toggle || !menu) return;
+
+    function close() {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function (event) {
+      event.stopPropagation();
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      menu.hidden = open;
+      toggle.setAttribute('aria-expanded', String(!open));
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!menu.hidden && !menu.contains(event.target)) close();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') close();
+    });
+  })();
+
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 

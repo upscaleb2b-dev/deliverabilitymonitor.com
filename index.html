@@ -52,12 +52,23 @@
       <span class="type-out"><span id="brand-type"></span><span class="caret">_</span></span>
     </span>
   </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="#monitor">what we monitor</a>
-    <a href="#ai">ai native</a>
-    <a href="#api">api</a>
-    <a href="#how">how it works</a>
-    <a href="#faq">faq</a>
+  <nav class="tabs" aria-label="Primary">
+    <a class="tab" href="#monitor">what we monitor</a>
+    <a class="tab" href="#how">how it works</a>
+    <a class="tab" href="#ai">ai native</a>
+    <a class="tab" href="#api">api</a>
+    <a class="tab" href="#faq">faq</a>
+    <div class="tab-menu">
+      <button class="tab" type="button" aria-expanded="false" aria-controls="resources-menu">
+        resources <span class="chev" aria-hidden="true">⌄</span>
+      </button>
+      <div class="dropdown" id="resources-menu" hidden>
+        <a href="#ai">skills library <span class="chip chip-soon">soon</span></a>
+        <a href="#api">developer docs <span class="chip chip-soon">soon</span></a>
+        <a href="#monitor">status page <span class="chip chip-soon">soon</span></a>
+        <a href="mailto:hello@deliverabilitymonitor.com">talk to us</a>
+      </div>
+    </div>
   </nav>
   <a class="nav-cta" href="#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
 </header>
@@ -418,14 +429,16 @@
 </main>
 
 <footer class="footer">
-  <div class="footer-inner">
+  <nav class="footer-bar" aria-label="Footer">
+    <a href="#monitor">Support Docs</a>
+    <a href="#api">Developer Docs</a>
+    <a href="#ai">Skills Library</a>
+    <a href="#faq">Terms of Service</a>
+    <a href="#faq">Privacy Policy</a>
+    <a href="mailto:hello@deliverabilitymonitor.com">Contact</a>
+  </nav>
+  <div class="footer-meta-row">
     <span class="brand-name">deliverabilitymonitor<span class="brand-accent">.com</span></span>
-    <span class="footer-links">
-      <a href="#monitor">what we monitor</a>
-      <a href="#ai">ai native</a>
-      <a href="#api">api</a>
-      <a href="mailto:hello@deliverabilitymonitor.com">hello@deliverabilitymonitor.com</a>
-    </span>
     <span class="footer-meta">© <span id="year">2026</span> · closed beta</span>
   </div>
 </footer>
