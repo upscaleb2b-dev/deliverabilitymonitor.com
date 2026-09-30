@@ -798,34 +798,44 @@ main {
   border-top: 1px solid var(--line);
 }
 
+/* one row: wordmark · links · copyright */
 .footer-bar {
   width: 100%;
-  padding: 22px 34px;
+  padding: 13px 34px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;           /* never overflow; it folds instead */
+  align-items: center;
   justify-content: space-between;
-  gap: 14px 28px;
-  font-size: 12.5px;
+  gap: 10px 26px;
+  font-size: 12px;
+  color: var(--dim);
 }
 
-.footer-bar a {
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+
+.footer-links a {
   color: var(--dim);
   text-decoration: none;
   transition: color .15s ease;
 }
 
-.footer-bar a:hover { color: var(--green); }
+.footer-links a:hover { color: var(--green); }
 
-.footer-meta-row {
-  width: 100%;
-  padding: 0 34px 30px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--dim);
+.footer .brand-name { font-size: 12px; white-space: nowrap; }
+.footer-meta { white-space: nowrap; }
+
+/* Mid widths: tighten both bands rather than dropping the tabs early.
+   The nav needs ~1154px at full padding, which left an overflow window
+   between the tabs breakpoint (1080px) and that width. */
+@media (max-width: 1320px) {
+  .nav { padding-left: 24px; padding-right: 24px; gap: 14px; }
+  .tab { padding-left: 11px; padding-right: 11px; }
+  .footer-bar { padding-left: 24px; padding-right: 24px; gap: 10px 18px; }
+  .footer-links { gap: 6px 16px; font-size: 11.5px; }
 }
 
 /* ── responsive ── */
@@ -855,9 +865,13 @@ main {
   .submit { flex: 1 1 100%; border-left: 0; border-top: 1px solid var(--green-dim); }
   .section { padding-top: 56px; }
   .nav { padding-left: 16px; padding-right: 16px; }
-  .footer-bar { justify-content: flex-start; gap: 12px 20px; padding-left: 16px; padding-right: 16px; }
-  .footer-meta-row { padding-left: 16px; padding-right: 16px; }
-  .footer-meta-row { flex-direction: column; align-items: flex-start; }
+  .footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+  }
+  .footer-links { gap: 6px 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
