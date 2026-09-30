@@ -192,7 +192,7 @@ a { color: inherit; }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 6px);
+  top: 100%;
   right: 0;
   z-index: 5;
   min-width: 15rem;
@@ -725,6 +725,69 @@ main {
 .faq details[open] summary::before { content: "− "; }
 .faq details[open] summary { margin-bottom: 10px; }
 .faq p { margin: 0; color: var(--dim); font-size: 13px; }
+
+/* ── join / opt-in page ── */
+
+.join { padding: 72px 0 40px; }
+
+.join-inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 40px 34px 44px;
+  border: 1px solid var(--line-lit);
+  background:
+    radial-gradient(40rem 20rem at 50% 120%, rgba(74, 222, 128, 0.1), transparent 70%),
+    var(--panel);
+  text-align: center;
+}
+
+.join-inner h1 {
+  margin: 10px 0 0;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.join-inner .section-sub { margin: 12px auto 0; }
+.join-inner .form { margin: 26px auto 0; text-align: left; }
+
+.join-h {
+  margin: 34px 0 12px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.join-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.join-steps li {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.join-steps li:last-child { border-bottom: 0; }
+.join-num { color: var(--green); font-weight: 700; flex: 0 0 auto; }
+
+.join-foot { margin: 26px 0 0; font-size: 12.5px; color: var(--dim); }
+.join-foot a { color: var(--green); text-decoration: none; }
+.join-foot a:hover { text-decoration: underline; }
+
+@media (max-width: 620px) {
+  .join { padding-top: 40px; }
+  .join-inner { padding: 28px 18px 32px; }
+}
 
 /* ── footer ── */
 

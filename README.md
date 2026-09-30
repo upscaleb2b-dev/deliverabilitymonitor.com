@@ -53,6 +53,11 @@ home page stays short.
 | `/ai-native` | `ai-native.html` | Claude skills, GPT/Grok prompt packs, MCP server |
 | `/api-docs` | `api-docs.html` | Endpoint list and sample response |
 | `/faq` | `faq.html` | Four Q&As |
+| `/join` | `join.html` | Opt-in page — the old closing CTA band, now with its own waitlist form and a "what happens next" list |
+
+Every "join the closed beta" CTA — nav, section-page bands — points at `/join`.
+The home page keeps its own form in the hero console, so two pages carry a
+waitlist form; both use the same `#waitlist` markup and the same handler.
 
 Clean URLs come from `"cleanUrls": true` in `vercel.json`, which serves
 `what-we-monitor.html` at `/what-we-monitor`. The API page is `/api-docs` rather
@@ -65,6 +70,16 @@ byte-identical, so a find-and-replace across `*.html` works.
 `assets/js/app.js` runs on every page. Each block guards its own elements: the
 typed wordmark and resources dropdown run everywhere, the waitlist logic returns
 early when `#waitlist` is absent.
+
+The wordmark text is in the markup, so it renders before JS and without JS. The
+typing animation replays only on the first page of a visit (tracked in
+`sessionStorage`) — every tab is a full page load, so animating each time would
+blank the header on every navigation.
+
+The resources menu opens on hover where the pointer supports it, and on click
+everywhere. A pointer click on a hover device only opens, never toggles, or the
+hover that just opened it would be undone; keyboard activation (`event.detail
+=== 0`) still toggles properly.
 
 **Everything user-facing is placeholder copy.** Before launch, replace the monitor
 rail numbers, every `beta`/`alpha`/`soon` chip, the API routes and sample

@@ -70,11 +70,29 @@
       toggle.setAttribute('aria-expanded', 'false');
     }
 
+    function open() {
+      menu.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    // On a real pointer, hovering the tab opens it — which is what people expect
+    // of a caret menu, and the tab's hover styling already implies it.
+    var hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (hoverCapable) {
+      var wrap = toggle.closest('.tab-menu');
+      wrap.addEventListener('mouseenter', open);
+      wrap.addEventListener('mouseleave', close);
+    }
+
     toggle.addEventListener('click', function (event) {
       event.stopPropagation();
-      var open = toggle.getAttribute('aria-expanded') === 'true';
-      menu.hidden = open;
-      toggle.setAttribute('aria-expanded', String(!open));
+      // A pointer click on a hover device arrives with the menu already open,
+      // so toggling here would close what the hover just opened. Keyboard
+      // activation reports detail 0 and still needs a real toggle.
+      var fromKeyboard = event.detail === 0;
+      if (hoverCapable && !fromKeyboard) return open();
+      if (toggle.getAttribute('aria-expanded') === 'true') close();
+      else open();
     });
 
     document.addEventListener('click', function (event) {

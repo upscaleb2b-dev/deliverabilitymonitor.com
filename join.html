@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The API — Deliverability Monitor</title>
-<meta name="description" content="Everything the UI can do, the API can do first. Domain health, inbox placement, blacklist checks and Postmaster reputation over plain REST." />
-<link rel="canonical" href="https://www.deliverabilitymonitor.com/api-docs" />
+<title>Join the closed beta — Deliverability Monitor</title>
+<meta name="description" content="Request access to the Deliverability Monitor closed beta. We onboard in waves — leave your work email and we will send your invite." />
+<link rel="canonical" href="https://www.deliverabilitymonitor.com/join" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.deliverabilitymonitor.com/api-docs" />
-<meta property="og:title" content="The API — Deliverability Monitor" />
-<meta property="og:description" content="Everything the UI can do, the API can do first. Domain health, inbox placement, blacklist checks and Postmaster reputation over plain REST." />
+<meta property="og:url" content="https://www.deliverabilitymonitor.com/join" />
+<meta property="og:title" content="Join the closed beta — Deliverability Monitor" />
+<meta property="og:description" content="Request access to the Deliverability Monitor closed beta. We onboard in waves — leave your work email and we will send your invite." />
 <meta property="og:image" content="https://www.deliverabilitymonitor.com/assets/icons/apple-touch-icon.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -55,7 +55,7 @@
     <a class="tab" href="/what-we-monitor">what we monitor</a>
     <a class="tab" href="/how-it-works">how it works</a>
     <a class="tab" href="/ai-native">ai native</a>
-    <a class="tab is-active" href="/api-docs" aria-current="page">api</a>
+    <a class="tab" href="/api-docs">api</a>
     <a class="tab" href="/faq">faq</a>
     <div class="tab-menu">
       <button class="tab" type="button" aria-expanded="false" aria-controls="resources-menu">
@@ -73,79 +73,50 @@
 </header>
 
 <main>
-  <section id="api" class="section">
-    <header class="section-head">
-      <p class="prompt-line"><span class="prompt">$</span> dm api --endpoints</p>
-      <h1>The API</h1>
-      <p class="section-sub">Everything the UI can do, the API can do first. Placeholder routes below.</p>
-    </header>
-
-    <div class="api-wrap">
-      <div class="api-list">
-        <a class="api-row" href="/join">
-          <span class="verb verb-get">GET</span>
-          <code>/v1/domains/:domain/health</code>
-          <span class="chip chip-beta">beta</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-get">GET</span>
-          <code>/v1/inboxes/:id/placement</code>
-          <span class="chip chip-beta">beta</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-get">GET</span>
-          <code>/v1/blacklists/check</code>
-          <span class="chip chip-beta">beta</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-get">GET</span>
-          <code>/v1/postmaster/reputation</code>
-          <span class="chip chip-alpha">alpha</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-post">POST</span>
-          <code>/v1/placement-tests</code>
-          <span class="chip chip-alpha">alpha</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-get">GET</span>
-          <code>/v1/benchmarks/industry</code>
-          <span class="chip chip-soon">soon</span>
-        </a>
-        <a class="api-row" href="/join">
-          <span class="verb verb-post">POST</span>
-          <code>/v1/webhooks/alerts</code>
-          <span class="chip chip-soon">soon</span>
-        </a>
-      </div>
-
-      <div class="panel api-sample">
-        <p class="rail-head rail-head-sm">Sample response</p>
-        <pre class="code"><code>{
-  <span class="c-key">"domain"</span>: <span class="c-str">"placeholder.com"</span>,
-  <span class="c-key">"inbox_rate"</span>: <span class="c-num">0.942</span>,
-  <span class="c-key">"spam_rate"</span>: <span class="c-num">0.031</span>,
-  <span class="c-key">"blacklists"</span>: [<span class="c-str">"example-rbl"</span>],
-  <span class="c-key">"auth"</span>: {
-    <span class="c-key">"spf"</span>: <span class="c-green">"pass"</span>,
-    <span class="c-key">"dkim"</span>: <span class="c-green">"pass"</span>,
-    <span class="c-key">"dmarc"</span>: <span class="c-amber">"none"</span>
-  },
-  <span class="c-key">"risk"</span>: <span class="c-amber">"medium"</span>
-}</code></pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ closing cta ══════════════════════════════════════════════ -->
-  <section class="cta">
-    <div class="cta-inner">
+  <!-- ══ opt-in ═══════════════════════════════════════════════════ -->
+  <section class="join">
+    <div class="join-inner">
       <p class="prompt-line"><span class="prompt">$</span> dm beta --join</p>
-      <h2>Built for the future of outbound</h2>
+      <h1>Built for the future of outbound</h1>
       <p class="section-sub">
-        The deliverability layer is opening in waves. Get your invite before the queue.
+        The deliverability layer is opening in waves. Leave your work email and
+        we will send your invite when the next one opens.
       </p>
-      <a class="cta-btn" href="/join">join the closed beta <span aria-hidden="true">&gt;</span></a>
+
+      <form id="waitlist" class="form" novalidate>
+        <div class="form-row">
+          <label class="sr-only" for="name">First name</label>
+          <input id="name" name="name" type="text" autocomplete="given-name" placeholder="first name" />
+
+          <label class="sr-only" for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+
+          <button class="submit" type="submit">
+            <span class="submit-label">request access &gt;</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="company_website">Company website</label>
+          <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <p class="form-note" id="form-status" role="status" aria-live="polite">
+          // no spam, no newsletter — just your invite.
+        </p>
+      </form>
+
+      <h2 class="join-h">What happens next</h2>
+      <ul class="join-steps">
+        <li><span class="join-num">01</span> We add you to the queue and email a confirmation.</li>
+        <li><span class="join-num">02</span> When the next wave opens, you get an invite link.</li>
+        <li><span class="join-num">03</span> You connect your inboxes and domains — read-only — and monitoring starts.</li>
+      </ul>
+
+      <p class="join-foot">
+        Questions first? <a href="mailto:hello@deliverabilitymonitor.com">hello@deliverabilitymonitor.com</a>
+      </p>
     </div>
   </section>
 </main>
