@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Deliverability Monitor — The Deliverability Layer for AI-Native Outbound</title>
-<meta name="description" content="Connect and monitor every inbox, domain, blacklist and placement signal in your outbound stack. Skills for Claude, prompts for GPT, an MCP server and a full API. Closed beta." />
-<link rel="canonical" href="https://www.deliverabilitymonitor.com/" />
+<title>Built AI native — Deliverability Monitor</title>
+<meta name="description" content="Skills for Claude, prompt packs for GPT and Grok, and a native MCP server. Call the deliverability layer from whatever your team already reasons in." />
+<link rel="canonical" href="https://www.deliverabilitymonitor.com/ai-native" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.deliverabilitymonitor.com/" />
-<meta property="og:title" content="Deliverability Monitor — The Deliverability Layer for AI-Native Outbound" />
-<meta property="og:description" content="Connect and monitor every inbox, domain, blacklist and placement signal in your outbound stack. Skills for Claude, prompts for GPT, an MCP server and a full API. Closed beta." />
+<meta property="og:url" content="https://www.deliverabilitymonitor.com/ai-native" />
+<meta property="og:title" content="Built AI native — Deliverability Monitor" />
+<meta property="og:description" content="Skills for Claude, prompt packs for GPT and Grok, and a native MCP server. Call the deliverability layer from whatever your team already reasons in." />
 <meta property="og:image" content="https://www.deliverabilitymonitor.com/assets/icons/apple-touch-icon.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -54,7 +54,7 @@
   <nav class="tabs" aria-label="Primary">
     <a class="tab" href="/what-we-monitor">what we monitor</a>
     <a class="tab" href="/how-it-works">how it works</a>
-    <a class="tab" href="/ai-native">ai native</a>
+    <a class="tab is-active" href="/ai-native" aria-current="page">ai native</a>
     <a class="tab" href="/api-docs">api</a>
     <a class="tab" href="/faq">faq</a>
     <div class="tab-menu">
@@ -73,100 +73,53 @@
 </header>
 
 <main>
-  <!-- ══ hero console ═════════════════════════════════════════════ -->
-  <section class="console">
-    <div class="console-bar">
-      <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span class="console-title">deliverability_monitor — CLOSED BETA</span>
-      <span class="console-meta" aria-hidden="true">v0.1.0-beta</span>
-    </div>
+  <section id="ai" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm agents --install</p>
+      <h1>Built AI native</h1>
+      <p class="section-sub">
+        No dashboard required. Call the deliverability layer from whatever your team
+        already reasons in.
+      </p>
+    </header>
 
-    <div class="console-body">
-      <!-- left: the pitch -->
-      <div class="console-main">
-        <p class="prompt-line"><span class="prompt">$</span> dm status --layer</p>
+    <div class="ai-grid">
+      <article class="panel panel-tall">
+        <span class="chip chip-soon panel-chip">soon</span>
+        <h3>Skills for Claude</h3>
+        <p>Drop-in skills so Claude can audit domains, read placement data and plan a fix without leaving your terminal.</p>
+        <pre class="code"><code><span class="c-dim">/</span>deliverability-audit <span class="c-dim">&lt;domain&gt;</span>
+<span class="c-dim">/</span>inbox-placement <span class="c-dim">&lt;mailbox&gt;</span>
+<span class="c-dim">/</span>warmup-plan <span class="c-dim">&lt;pool&gt;</span>
+<span class="c-dim">/</span>blacklist-check <span class="c-dim">&lt;domain&gt;</span>
+<span class="c-comment"># placeholder — final skill list tbd</span></code></pre>
+      </article>
 
-        <h1 class="headline">
-          Welcome to the<br />
-          <span class="headline-accent">Deliverability Layer</span><span class="cursor" aria-hidden="true"></span>
-        </h1>
-
-        <p class="sub">
-          We make sure your emails deliver to the inbox. Connect every inbox, domain and
-          signal in your outbound stack — and let AI watch it around the clock.
-        </p>
-
-        <div class="tags">
-          <span class="tag">ai native</span>
-          <span class="tag">api first</span>
-          <span class="tag">mcp ready</span>
-          <span class="tag">built for outbound</span>
-        </div>
-
-        <!-- ── waitlist form ── -->
-        <form id="waitlist" class="form" novalidate>
-          <p class="form-label"><span class="prompt">$</span> dm beta --request-access</p>
-
-          <div class="form-row">
-            <label class="sr-only" for="name">First name</label>
-            <input id="name" name="name" type="text" autocomplete="given-name" placeholder="first name" />
-
-            <label class="sr-only" for="email">Work email</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
-
-            <button class="submit" type="submit">
-              <span class="submit-label">request access &gt;</span>
-              <span class="spinner" aria-hidden="true"></span>
-            </button>
-          </div>
-
-          <div class="hp" aria-hidden="true">
-            <label for="company_website">Company website</label>
-            <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <p class="form-note" id="form-status" role="status" aria-live="polite">
-            // closed beta. we onboard in waves — no spam, just your invite.
-          </p>
-        </form>
-      </div>
-
-      <!-- right: live-ish monitor rail -->
-      <aside class="console-rail" aria-label="Monitor preview">
-        <p class="rail-head">Coming soon — live monitor</p>
-        <p class="rail-sub">// all values below are placeholders</p>
-
-        <div class="readout">
-          <div class="readout-row">
-            <span class="readout-key">inbox placement</span>
-            <span class="readout-val val-green">94.2%</span>
-          </div>
-          <div class="meter"><span class="meter-fill green" style="width:94%"></span></div>
-
-          <div class="readout-row">
-            <span class="readout-key">spam placement</span>
-            <span class="readout-val val-coral">3.1%</span>
-          </div>
-          <div class="meter"><span class="meter-fill coral" style="width:12%"></span></div>
-
-          <div class="readout-row">
-            <span class="readout-key">domain health</span>
-            <span class="readout-val val-amber">warn</span>
-          </div>
-          <div class="meter"><span class="meter-fill amber" style="width:62%"></span></div>
-        </div>
-
-        <p class="rail-head rail-head-sm">Recent events</p>
-        <ul class="events">
-          <li><i class="dot dot-coral"></i> <span>blacklist hit — <em>placeholder.com</em></span></li>
-          <li><i class="dot dot-amber"></i> <span>reply rate down 18% — <em>seq #4</em></span></li>
-          <li><i class="dot dot-green"></i> <span>dkim aligned — <em>placeholder.io</em></span></li>
-          <li><i class="dot dot-amber"></i> <span>tld degradation — <em>.info pool</em></span></li>
-          <li><i class="dot dot-green"></i> <span>warmup complete — <em>12 inboxes</em></span></li>
+      <article class="panel panel-tall">
+        <span class="chip chip-soon panel-chip">soon</span>
+        <h3>Prompts for GPT, Grok &amp; Perplexity</h3>
+        <p>Copy-paste prompt packs that turn any frontier model into a deliverability analyst over your own data.</p>
+        <ul class="list list-plain">
+          <li><span class="prompt">&gt;</span> daily inbox health digest</li>
+          <li><span class="prompt">&gt;</span> root-cause a reply rate drop</li>
+          <li><span class="prompt">&gt;</span> domain rotation planner</li>
+          <li><span class="prompt">&gt;</span> spam complaint triage</li>
+          <li class="c-comment"># placeholder pack</li>
         </ul>
-      </aside>
+      </article>
+
+      <article class="panel panel-tall">
+        <span class="chip chip-alpha panel-chip">alpha</span>
+        <h3>MCP server</h3>
+        <p>Native Model Context Protocol server. Point any MCP client at your account and the tools show up.</p>
+        <pre class="code"><code><span class="c-dim">$</span> npx @deliverability<span class="c-dim">/</span>mcp
+<span class="c-green">✓</span> connected
+<span class="c-green">✓</span> 14 tools registered
+<span class="c-comment"># placeholder install command</span></code></pre>
+      </article>
     </div>
   </section>
+
   <!-- ══ closing cta ══════════════════════════════════════════════ -->
   <section class="cta">
     <div class="cta-inner">
@@ -175,9 +128,10 @@
       <p class="section-sub">
         The deliverability layer is opening in waves. Get your invite before the queue.
       </p>
-      <a class="cta-btn" href="#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
+      <a class="cta-btn" href="/#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
     </div>
-  </section></main>
+  </section>
+</main>
 
 <footer class="footer">
   <nav class="footer-bar" aria-label="Footer">

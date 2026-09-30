@@ -179,6 +179,11 @@ a { color: inherit; }
 
 .tab:focus-visible { outline: 1px solid var(--green-dim); outline-offset: -2px; }
 
+.tab.is-active {
+  color: var(--text);
+  border-bottom-color: var(--green);
+}
+
 .chev { font-size: 11px; transition: transform .15s ease; }
 .tab[aria-expanded="true"] .chev { transform: rotate(180deg); }
 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How it works — Deliverability Monitor</title>
+<meta name="description" content="Connect your inboxes and domains, monitor them continuously, let AI diagnose the cause, and act before a reply-rate drop costs you the quarter." />
+<link rel="canonical" href="https://www.deliverabilitymonitor.com/how-it-works" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.deliverabilitymonitor.com/how-it-works" />
+<meta property="og:title" content="How it works — Deliverability Monitor" />
+<meta property="og:description" content="Connect your inboxes and domains, monitor them continuously, let AI diagnose the cause, and act before a reply-rate drop costs you the quarter." />
+<meta property="og:image" content="https://www.deliverabilitymonitor.com/assets/icons/apple-touch-icon.png" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" sizes="any" />
+<link rel="icon" href="/assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+<link rel="icon" href="/assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" sizes="180x180" />
+<meta name="theme-color" content="#080b0a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<!-- ══ status ticker ══════════════════════════════════════════════ -->
+<div class="ticker" role="status">
+  <div class="ticker-track">
+    <span class="ticker-item"><i class="dot dot-green"></i> closed beta · onboarding in waves</span>
+    <span class="ticker-item"><i class="dot dot-amber"></i> placeholder metric — inbox rate 94.2%</span>
+    <span class="ticker-item"><i class="dot dot-green"></i> mcp server · shipping soon</span>
+    <span class="ticker-item"><i class="dot dot-coral"></i> placeholder metric — 3 domains flagged</span>
+    <span class="ticker-item"><i class="dot dot-green"></i> claude skills · in development</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> closed beta · onboarding in waves</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-amber"></i> placeholder metric — inbox rate 94.2%</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> mcp server · shipping soon</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-coral"></i> placeholder metric — 3 domains flagged</span>
+    <span class="ticker-item" aria-hidden="true"><i class="dot dot-green"></i> claude skills · in development</span>
+  </div>
+</div>
+
+<!-- ══ nav ════════════════════════════════════════════════════════ -->
+<header class="nav">
+  <a class="brand" href="/" aria-label="deliverabilitymonitor.com">
+    <span class="type" aria-hidden="true">
+      <span class="type-ghost">deliverabilitymonitor.com_</span>
+      <span class="type-out"><span id="brand-type"></span><span class="caret">_</span></span>
+    </span>
+  </a>
+  <nav class="tabs" aria-label="Primary">
+    <a class="tab" href="/what-we-monitor">what we monitor</a>
+    <a class="tab is-active" href="/how-it-works" aria-current="page">how it works</a>
+    <a class="tab" href="/ai-native">ai native</a>
+    <a class="tab" href="/api-docs">api</a>
+    <a class="tab" href="/faq">faq</a>
+    <div class="tab-menu">
+      <button class="tab" type="button" aria-expanded="false" aria-controls="resources-menu">
+        resources <span class="chev" aria-hidden="true">⌄</span>
+      </button>
+      <div class="dropdown" id="resources-menu" hidden>
+        <a href="/ai-native">skills library <span class="chip chip-soon">soon</span></a>
+        <a href="/api-docs">developer docs <span class="chip chip-soon">soon</span></a>
+        <a href="/what-we-monitor">status page <span class="chip chip-soon">soon</span></a>
+        <a href="mailto:hello@deliverabilitymonitor.com">talk to us</a>
+      </div>
+    </div>
+  </nav>
+  <a class="nav-cta" href="/#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
+</header>
+
+<main>
+  <section id="how" class="section">
+    <header class="section-head">
+      <p class="prompt-line"><span class="prompt">$</span> dm --how</p>
+      <h1>How it works</h1>
+    </header>
+
+    <ol class="steps">
+      <li class="panel">
+        <span class="step-num">01</span>
+        <h3>Connect</h3>
+        <p>Link Google, Microsoft and SMTP inboxes, your sending domains and your sequencer. Read-only, OAuth where it exists.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">02</span>
+        <h3>Monitor</h3>
+        <p>Continuous placement tests, auth checks, blacklist sweeps and Postmaster pulls across every asset you connected.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">03</span>
+        <h3>Diagnose</h3>
+        <p>AI separates real degradation from daily noise, then names the cause — not just the symptom.</p>
+      </li>
+      <li class="panel">
+        <span class="step-num">04</span>
+        <h3>Act</h3>
+        <p>Alerts land where you work: Slack, webhook, your agent. Pause the mailbox, rotate the domain, fix the record.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ══ closing cta ══════════════════════════════════════════════ -->
+  <section class="cta">
+    <div class="cta-inner">
+      <p class="prompt-line"><span class="prompt">$</span> dm beta --join</p>
+      <h2>Built for the future of outbound</h2>
+      <p class="section-sub">
+        The deliverability layer is opening in waves. Get your invite before the queue.
+      </p>
+      <a class="cta-btn" href="/#waitlist">join the closed beta <span aria-hidden="true">&gt;</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <nav class="footer-bar" aria-label="Footer">
+    <a href="/what-we-monitor">What We Monitor</a>
+    <a href="/api-docs">Developer Docs</a>
+    <a href="/ai-native">Skills Library</a>
+    <a href="/how-it-works">How It Works</a>
+    <a href="/faq">FAQ</a>
+    <a href="mailto:hello@deliverabilitymonitor.com">Contact</a>
+  </nav>
+  <div class="footer-meta-row">
+    <span class="brand-name">deliverabilitymonitor<span class="brand-accent">.com</span></span>
+    <span class="footer-meta">© <span id="year">2026</span> · closed beta</span>
+  </div>
+</footer>
+
+<script src="/assets/js/app.js" defer></script>
+</body>
+</html>

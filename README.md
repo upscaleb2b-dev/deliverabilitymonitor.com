@@ -42,23 +42,35 @@ the letter by editing the path.
 
 ## Page structure
 
-| Section | `#id` | Notes |
+Multi-page static site. Tabs in the header are real pages, not anchors, so the
+home page stays short.
+
+| Path | File | Contents |
 | --- | --- | --- |
-| Hero console | — | Headline, waitlist form, placeholder monitor rail |
-| Connect & monitor | `#monitor` | 6 panels — inboxes, infrastructure, placement signals, campaign health, benchmarks, integrations |
-| Built AI native | `#ai` | Claude skills, GPT/Grok/Perplexity prompt packs, MCP server |
-| The API | `#api` | Endpoint list + sample response |
-| How it works | `#how` | 4 steps |
-| CTA band | — | "Built for the future of outbound" |
-| FAQ | `#faq` | 4 placeholder Q&As |
+| `/` | `index.html` | Hero console with the waitlist form, monitor rail, closing CTA |
+| `/what-we-monitor` | `what-we-monitor.html` | Six panels — inboxes, infrastructure, placement signals, campaign health, benchmarks, integrations |
+| `/how-it-works` | `how-it-works.html` | Connect → Monitor → Diagnose → Act |
+| `/ai-native` | `ai-native.html` | Claude skills, GPT/Grok prompt packs, MCP server |
+| `/api-docs` | `api-docs.html` | Endpoint list and sample response |
+| `/faq` | `faq.html` | Four Q&As |
 
-**Everything user-facing is placeholder copy.** Before launch, replace: the monitor
-rail numbers, the `beta`/`alpha`/`soon` status chips on every feature line, the
-API routes and sample response, the Claude skill names, the MCP install command,
-and all four FAQ answers.
+Clean URLs come from `"cleanUrls": true` in `vercel.json`, which serves
+`what-we-monitor.html` at `/what-we-monitor`. The API page is `/api-docs` rather
+than `/api` so it cannot collide with the `api/` serverless function directory.
 
-Status chips are `.chip-beta` (green), `.chip-alpha` (amber) and `.chip-soon`
-(grey) — swap the class to change a line's status.
+**The header and footer are duplicated across all six files.** There is no build
+step, so changing a nav link or a footer entry means editing every page. They are
+byte-identical, so a find-and-replace across `*.html` works.
+
+`assets/js/app.js` runs on every page. Each block guards its own elements: the
+typed wordmark and resources dropdown run everywhere, the waitlist logic returns
+early when `#waitlist` is absent.
+
+**Everything user-facing is placeholder copy.** Before launch, replace the monitor
+rail numbers, every `beta`/`alpha`/`soon` chip, the API routes and sample
+response, the Claude skill names, the MCP install command, and all four FAQ
+answers.
+
 
 ## Connecting GoHighLevel
 
