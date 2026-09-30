@@ -106,12 +106,12 @@ a { color: inherit; }
 .nav {
   position: relative;
   z-index: 2;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 20px;
+  width: 100%;
+  padding: 16px 34px;
   display: flex;
   align-items: center;
   gap: 24px;
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
@@ -731,9 +731,8 @@ main {
 }
 
 .footer-bar {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 22px 20px;
+  width: 100%;
+  padding: 22px 34px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -750,9 +749,8 @@ main {
 .footer-bar a:hover { color: var(--green); }
 
 .footer-meta-row {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 20px 34px;
+  width: 100%;
+  padding: 0 34px 30px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -788,7 +786,9 @@ main {
   .form-row input#name { border-right: 0; border-bottom: 1px solid var(--line); }
   .submit { flex: 1 1 100%; border-left: 0; border-top: 1px solid var(--green-dim); }
   .section { padding-top: 56px; }
-  .footer-bar { justify-content: flex-start; gap: 12px 20px; }
+  .nav { padding-left: 16px; padding-right: 16px; }
+  .footer-bar { justify-content: flex-start; gap: 12px 20px; padding-left: 16px; padding-right: 16px; }
+  .footer-meta-row { padding-left: 16px; padding-right: 16px; }
   .footer-meta-row { flex-direction: column; align-items: flex-start; }
 }
 
