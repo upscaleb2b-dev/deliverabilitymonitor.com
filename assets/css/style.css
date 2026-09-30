@@ -106,12 +106,12 @@ a { color: inherit; }
 .nav {
   position: relative;
   z-index: 2;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 20px;
+  width: 100%;
+  padding: 16px 34px;
   display: flex;
   align-items: center;
   gap: 24px;
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
@@ -144,20 +144,74 @@ a { color: inherit; }
 
 @keyframes blink { 50% { opacity: 0; } }
 
-.nav-links {
+/* ── tabs ── */
+
+.tabs {
   display: flex;
-  gap: 26px;
-  margin-left: auto;
-  font-size: 13.5px;
+  align-items: stretch;
+  gap: 4px;
+  margin: 0 auto;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
   color: var(--dim);
-}
-
-.nav-links a {
+  font: inherit;
+  font-size: 13.5px;
   text-decoration: none;
-  transition: color 0.15s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
 }
 
-.nav-links a:hover { color: var(--green); }
+.tab:hover,
+.tab[aria-expanded="true"] {
+  color: var(--green);
+  border-bottom-color: var(--green-dim);
+  background: rgba(74, 222, 128, 0.05);
+}
+
+.tab:focus-visible { outline: 1px solid var(--green-dim); outline-offset: -2px; }
+
+.chev { font-size: 11px; transition: transform .15s ease; }
+.tab[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+/* resources dropdown */
+.tab-menu { position: relative; display: flex; }
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 5;
+  min-width: 15rem;
+  padding: 6px;
+  border: 1px solid var(--line-lit);
+  background: #0b100e;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown[hidden] { display: none; }
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  color: var(--dim);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color .15s ease, background .15s ease;
+}
+
+.dropdown a:hover { color: var(--green); background: rgba(74, 222, 128, 0.07); }
 
 .nav-cta {
   padding: 8px 16px;
@@ -676,30 +730,46 @@ main {
   border-top: 1px solid var(--line);
 }
 
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 26px 20px 40px;
+.footer-bar {
+  width: 100%;
+  padding: 22px 34px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px 28px;
+  font-size: 12.5px;
+}
+
+.footer-bar a {
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+
+.footer-bar a:hover { color: var(--green); }
+
+.footer-meta-row {
+  width: 100%;
+  padding: 0 34px 30px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px 28px;
-  font-size: 12.5px;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
   color: var(--dim);
 }
 
-.footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
-.footer-links a { text-decoration: none; transition: color 0.15s ease; }
-.footer-links a:hover { color: var(--green); }
-.footer-meta { margin-left: auto; }
-
 /* ── responsive ── */
+
+@media (max-width: 1080px) {
+  .tabs { display: none; }
+}
 
 @media (max-width: 940px) {
   .console-body { grid-template-columns: 1fr; }
   .console-rail { border-left: 0; border-top: 1px solid var(--line); }
   .api-wrap { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
 }
 
 @media (max-width: 620px) {
@@ -716,7 +786,10 @@ main {
   .form-row input#name { border-right: 0; border-bottom: 1px solid var(--line); }
   .submit { flex: 1 1 100%; border-left: 0; border-top: 1px solid var(--green-dim); }
   .section { padding-top: 56px; }
-  .footer-meta { margin-left: 0; }
+  .nav { padding-left: 16px; padding-right: 16px; }
+  .footer-bar { justify-content: flex-start; gap: 12px 20px; padding-left: 16px; padding-right: 16px; }
+  .footer-meta-row { padding-left: 16px; padding-right: 16px; }
+  .footer-meta-row { flex-direction: column; align-items: flex-start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
