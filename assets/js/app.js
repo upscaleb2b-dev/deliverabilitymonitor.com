@@ -7,9 +7,31 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   // ── typed wordmark ────────────────────────────────────────────────
+  // The wordmark is already in the markup, so it is never blank. This only
+  // replays it as a typing animation on the first page of a visit — every tab
+  // is a full page load, so animating each time would blank the header on
+  // every navigation.
   (function typeBrand() {
     var target = document.getElementById('brand-type');
     if (!target) return;
+
+    var SEEN = 'dm:brand-typed';
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var alreadyTyped = false;
+    try {
+      alreadyTyped = window.sessionStorage.getItem(SEEN) === '1';
+    } catch (error) {
+      alreadyTyped = true; // storage blocked: show it, never animate
+    }
+
+    if (reduced || alreadyTyped) return; // leave the server-rendered markup alone
+
+    try {
+      window.sessionStorage.setItem(SEEN, '1');
+    } catch (error) {
+      /* non-fatal: the animation just repeats next page */
+    }
 
     var DOMAIN = 'deliverabilitymonitor.com';
     var TLD_AT = DOMAIN.length - 4; // ".com" picks up the accent colour
@@ -24,11 +46,6 @@
         dot.textContent = tail;
         target.appendChild(dot);
       }
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      render(DOMAIN.length);
-      return;
     }
 
     var wrap = target.closest('.type');
