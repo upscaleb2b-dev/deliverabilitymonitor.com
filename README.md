@@ -87,6 +87,20 @@ response, the Claude skill names, the MCP install command, and all four FAQ
 answers.
 
 
+## Analytics
+
+The Meta Pixel (`1825568108268829`) is on all seven pages. The loader sits at the
+end of `<head>`; the `<noscript>` fallback image sits at the top of `<body>`,
+because `<img>` is not valid inside `<head>` — the parser hoists it out anyway,
+so this just does it explicitly.
+
+It fires `PageView` on every page. No conversion events are wired up yet; a
+waitlist signup would be a natural `Lead` event, fired from the `.then()` in
+`app.js` where the form reports success.
+
+Adding it to a new page means editing that page's `<head>` and `<body>` — same
+duplication caveat as the header and footer.
+
 ## Connecting GoHighLevel
 
 The form posts to `/api/waitlist`, which forwards the signup to GHL sub-account
